@@ -1,0 +1,53 @@
+:root{
+    --Marineblue: hsl(213, 96%, 18%);
+    --Purplishblue: hsl(243, 100%, 62%);
+    --Pastelblue: hsl(228, 100%, 84%);
+    --Lightblue: hsl(206, 94%, 87%);
+    --Strawberryred: hsl(354, 84%, 57%);
+    
+    --Coolgray: hsl(231, 11%, 63%);
+    --Lightgray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+    background-color: var(--Magnolia);
+    font-family: "Ubuntu", sans-serif;
+}
+
+.sidebar{
+    width: 280px;
+    height: 570px;
+    background: url("/src/assets/images/bg-sidebar-desktop.svg" );
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.usercontainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+.usercontainer label{
+    color: var(--Marineblue);
+}
+.usercontainer h1{
+    color: var(--Marineblue);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.usercontainer p{
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--Coolgray);
+    margin-bottom: 30px;
+}
+.buttonFirst{
+    display: flex !important;
+  justify-content: right !important;
+}
+
+
+
+
+.attribution{
+    text-align: center;
+}
