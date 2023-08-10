@@ -1,11 +1,19 @@
-import React from "react";
-import { TextField, Button } from "@mui/material";
-import { borderRadius } from "@mui/system";
+import React, {useState} from "react";
+import { TextField, Button, Hidden } from "@mui/material";
+
 
 const UserInfo = ({nextStep, handleChange, values}) => {
+    const [showError, setShowError] = useState(false);
     const Continue = e => {
         e.preventDefault();
-        nextStep();
+        if (values.phonenumber !== ""){
+            setShowError(false);
+            nextStep();
+        }else {
+            setShowError(true);
+            document.querySelector(".required").style.display = "block";
+        }
+
       }
     return(
         <>
@@ -28,13 +36,18 @@ const UserInfo = ({nextStep, handleChange, values}) => {
                 margin="dense"
                 sx={{marginBottom:3}}
                 />
-                <label>Phonenumber</label>
+                <div className="phonenumberlabel">
+                <label>Phonenumber</label><label className="required" style={{ display: "none", color:"red"}}>This field has required</label>
+                </div>
                 <TextField
+                className="phonenumberfield"
                 placeholder="e.g. +1 234 567 890"
+                inputProps={{ inputMode: 'numeric' }}
                 onChange={handleChange('phonenumber')}
                 defaultValue={values.phonenumber}
                 margin="dense"
-                sx={{marginBottom:3}}
+                error = {showError}
+                sx={{marginBottom:3, borderColor:"black"}}
                 />
                 </div>
             <div className="buttonFirst">

@@ -2,9 +2,7 @@ import "../components/styles.css"
 import React,{Component}from "react"
 import UserInfo from "./UserInfo"
 import Plans from "./Plans"
-import { Container, Grid } from "@mui/material"
-import { alignProperty } from "@mui/material/styles/cssUtils"
-import { borderRadius } from "@mui/system"
+import { Container, Grid, Stepper, Step, StepLabel } from "@mui/material"
 
 export default class Home extends Component {
   state = {
@@ -52,7 +50,41 @@ export default class Home extends Component {
             paddingBottom:"10px"}}>
         <Grid container>
           <Grid className="sidebar"item >
-            
+          <Stepper className="step" connector="" activeStep={step - 1} orientation="vertical" >
+                <Step className="step1"sx={{backgroundColor: "transparent",
+              '& .MuiStepLabel-root .Mui-completed': {
+                color: '#fafbff', // circle color (COMPLETED)
+              },
+              '& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel':
+                {
+                  color: 'grey.500', // Just text label (COMPLETED)
+                },
+              '& .MuiStepLabel-root .Mui-active': {
+                color: '#bfe2fd', // circle color (ACTIVE)
+              },
+              '& .MuiStepLabel-label.Mui-active':
+                {
+                  color: '#d6d9e6', // Just text label (ACTIVE)
+                },
+              '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
+                fill: 'black', // circle's number (ACTIVE)
+              },}}>
+                  <StepLabel sx={ {color:"white"}
+                  }>Step 1</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Step 2</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Step 3</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Step 4</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Final Step</StepLabel>
+                </Step>
+              </Stepper>
           </Grid>
           <Grid item md={6} sx={{marginLeft:7}}>
             {step === 1 && (
