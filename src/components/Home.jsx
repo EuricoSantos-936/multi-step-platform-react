@@ -36,7 +36,7 @@ export default class Home extends Component {
         const { step } = this.state;
         const { email, name, phonenumber, plan, yearly, addon } = this.state;
         const values = { email, name, phonenumber, plan, yearly, addon }
-        
+
         return(
           <>
           <Container sx={{
@@ -50,39 +50,48 @@ export default class Home extends Component {
             paddingBottom:"10px"}}>
         <Grid container>
           <Grid className="sidebar"item >
-          <Stepper className="step" connector="" activeStep={step - 1} orientation="vertical" >
-                <Step className="step1"sx={{backgroundColor: "transparent",
-              '& .MuiStepLabel-root .Mui-completed': {
-                color: '#fafbff', // circle color (COMPLETED)
-              },
-              '& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel':
-                {
-                  color: 'grey.500', // Just text label (COMPLETED)
-                },
-              '& .MuiStepLabel-root .Mui-active': {
-                color: '#bfe2fd', // circle color (ACTIVE)
-              },
-              '& .MuiStepLabel-label.Mui-active':
-                {
-                  color: '#d6d9e6', // Just text label (ACTIVE)
-                },
-              '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
-                fill: 'black', // circle's number (ACTIVE)
-              },}}>
-                  <StepLabel sx={ {color:"white"}
-                  }>Step 1</StepLabel>
+            
+          <Stepper  className="stepper" connector="" activeStep={step - 1} orientation="vertical" sx={{
+          '& .MuiStepLabel-label.Mui-active': {
+            color: '#bfe2fd', // text (ACTIVE)
+          },
+          '& .MuiStepLabel-label.Mui-completed': {
+            color: '#bfe2fd', // Text (COMPLETED)
+          },
+          '& .MuiStepLabel-labelContainer': {
+            color: 'white', // OptionalText
+          },
+          '& .MuiStepLabel-label': {
+            color: '#bfe2fd', // text {DEFAULT}
+          },
+          '& .MuiStepIcon-root.Mui-active': {
+            color: '#bfe2fd', // icon color (ACTIVE)
+
+          },
+          '& .MuiStepIcon-root.Mui-completed': {
+            color: 'transparent',
+            border: "2px solid white", // icon color (COMPLETED)
+          },
+          '& .MuiStepIcon-root': {
+            color: 'transparent',
+            border: "2px solid white",
+            borderRadius: "50px" // icon color (default)
+          },
+
+
+
+        }}>
+                <Step >
+                  <StepLabel optional="YOUR INFO">Step 1</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel>Step 2</StepLabel>
+                  <StepLabel optional="SELECT PLAN">Step 2</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel>Step 3</StepLabel>
+                  <StepLabel optional="ADDONS">Step 3</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel>Step 4</StepLabel>
-                </Step>
-                <Step>
-                  <StepLabel>Final Step</StepLabel>
+                  <StepLabel optional="SUMMARY">Step 4</StepLabel>
                 </Step>
               </Stepper>
           </Grid>

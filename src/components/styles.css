@@ -1,7 +1,7 @@
 :root{
     --Marineblue: hsl(213, 96%, 18%);
     --Purplishblue: hsl(243, 100%, 62%);
-    --Pastelblue: hsl(228, 100%, 84%);
+    --Pastelblue: #adbeff;
     --Lightblue: #bfe2fd;
     --Strawberryred: hsl(354, 84%, 57%);
     
@@ -24,9 +24,9 @@
     align-items: flex-start;
 }
 
-.step{
-    color: var(--Alabaster);
+.stepper{
     margin-left: 50px;
+
 }
 .usercontainer{
     display: flex;
