@@ -1,8 +1,11 @@
 import "../components/styles.css"
+import '../assets/fonts/Ubuntu-Bold.ttf'
+import '../assets/fonts/Ubuntu-Medium.ttf'
+import '../assets/fonts/Ubuntu-Regular.ttf'
 import React,{Component}from "react"
 import UserInfo from "./UserInfo"
 import Plans from "./Plans"
-import { Container, Grid, Stepper, Step, StepLabel } from "@mui/material"
+import { Container, Grid, Stepper, Step, StepLabel} from "@mui/material"
 
 export default class Home extends Component {
   state = {
@@ -37,6 +40,8 @@ export default class Home extends Component {
         const { email, name, phonenumber, plan, yearly, addon } = this.state;
         const values = { email, name, phonenumber, plan, yearly, addon }
 
+
+
         return(
           <>
           <Container sx={{
@@ -51,47 +56,18 @@ export default class Home extends Component {
         <Grid container>
           <Grid className="sidebar"item >
             
-          <Stepper  className="stepper" connector="" activeStep={step - 1} orientation="vertical" sx={{
-          '& .MuiStepLabel-label.Mui-active': {
-            color: '#bfe2fd', // text (ACTIVE)
-          },
-          '& .MuiStepLabel-label.Mui-completed': {
-            color: '#bfe2fd', // Text (COMPLETED)
-          },
-          '& .MuiStepLabel-labelContainer': {
-            color: 'white', // OptionalText
-          },
-          '& .MuiStepLabel-label': {
-            color: '#bfe2fd', // text {DEFAULT}
-          },
-          '& .MuiStepIcon-root.Mui-active': {
-            color: '#bfe2fd', // icon color (ACTIVE)
-
-          },
-          '& .MuiStepIcon-root.Mui-completed': {
-            color: 'transparent',
-            border: "2px solid white", // icon color (COMPLETED)
-          },
-          '& .MuiStepIcon-root': {
-            color: 'transparent',
-            border: "2px solid white",
-            borderRadius: "50px" // icon color (default)
-          },
-
-
-
-        }}>
+          <Stepper  className="stepper" activeStep={step - 1} orientation="vertical"  sx={{marginTop: '30px'}}>
                 <Step >
-                  <StepLabel optional="YOUR INFO">Step 1</StepLabel>
+                  <StepLabel optional="YOUR INFO" sx={{marginTop: '10px', marginBottom:'10px'}}>Step 1</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel optional="SELECT PLAN">Step 2</StepLabel>
+                  <StepLabel optional="SELECT PLAN"sx={{marginTop: '10px', marginBottom:'10px'}}>Step 2</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel optional="ADDONS">Step 3</StepLabel>
+                  <StepLabel optional="ADD-ONS" sx={{marginTop: '10px', marginBottom:'10px'}}>Step 3</StepLabel>
                 </Step>
                 <Step>
-                  <StepLabel optional="SUMMARY">Step 4</StepLabel>
+                  <StepLabel optional="SUMMARY" sx={{marginTop: '10px', marginBottom:'10px'}}>Step 4</StepLabel>
                 </Step>
               </Stepper>
           </Grid>
@@ -131,13 +107,14 @@ export default class Home extends Component {
           </Grid>
       </Grid>
       </Container>
-        <div class="attribution">
+        <div className="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Eurico Santos</a>.
       </div>
       </>
         )
-         {/* <!-- Sidebar start -->
+         {
+/* <!-- Sidebar start -->
 
 <!-- Step 2 start -->
 

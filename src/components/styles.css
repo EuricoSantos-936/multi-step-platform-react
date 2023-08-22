@@ -1,17 +1,32 @@
+@font-face {
+    font-family: "Ubuntu-Bold";
+    src: local('Ubuntu-Bold'),
+    url('../assets/fonts/Ubuntu-Bold.ttf');
+}
+@font-face {
+    font-family: "Ubuntu-Medium";
+    src: local('Ubunutu-Medium'),
+    url('../assets/fonts/Ubuntu-Medium.ttf');
+}
+@font-face {
+    font-family: "Ubuntu-Regular";
+    src: local('Ubuntu-Regular'),
+    url('../assets/fonts/Ubuntu-Regular.ttf');
+}
 :root{
-    --Marineblue: hsl(213, 96%, 18%);
-    --Purplishblue: hsl(243, 100%, 62%);
+    --Marineblue: #02295a;
+    --Purplishblue: #473dff;
     --Pastelblue: #adbeff;
     --Lightblue: #bfe2fd;
-    --Strawberryred: hsl(354, 84%, 57%);
+    --Strawberryred: #ed3548;
     
-    --Coolgray: hsl(231, 11%, 63%);
+    --Coolgray: #9699ab;
     --Lightgray: #d6d9e6;
     --Magnolia: hsl(217, 100%, 97%);
     --Alabaster: #fafbff;
     --White: hsl(0, 0%, 100%);
     background-color: var(--Magnolia);
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu-Regular", sans-serif;
 }
 
 .sidebar{
@@ -28,6 +43,8 @@
     margin-left: 50px;
 
 }
+
+/*User Info Styles*/
 .usercontainer{
     display: flex;
     flex-direction: column;
@@ -50,20 +67,55 @@
 .required{
     text-align: right;
 }
-.phonenumberlabel{
+.requiredemail{
+    text-align: right;
+}
+.labels{
     display: flex;
     justify-content: space-between;
 }
+
 .buttonFirst{
     display: flex !important;
   justify-content: right !important;
 }
 
+/*Plans Style*/
+.planscontainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
 
+.planscontainer h1{
+    color: var(--Marineblue);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.planscontainer p{
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--Coolgray);
+    margin-bottom: 30px;
+}
+.boxplan{
+    border: 1px solid var(--Lightgray);
+    border-radius: 10px;
+}
+.switchplan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.switchplan p{
+    padding-top: 10px;
+}
+.btnPlans{
+    display: flex !important;
+    justify-content: space-between !important;
+}
 
-
-
-
+/*Geral*/
 .attribution{
     text-align: center;
 }
