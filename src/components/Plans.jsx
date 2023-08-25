@@ -57,7 +57,6 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
         <Grid container className="switchplan">
           <p id='monthly'>Monthly</p>
           <Switch 
-            
             checked= {billingType == "yearly"}
             onChange={() =>
               setBillingType(billingType === "monthly" ? "yearly" : "monthly")
