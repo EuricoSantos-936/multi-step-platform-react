@@ -14,7 +14,7 @@
     url('../assets/fonts/Ubuntu-Regular.ttf');
 }
 :root{
-    --Marineblue: #02295a;
+    --Marineblue: #0654b3;
     --Purplishblue: #473dff;
     --Pastelblue: #adbeff;
     --Lightblue: #bfe2fd;
@@ -78,7 +78,9 @@
 .buttonFirst{
     display: flex !important;
   justify-content: right !important;
+
 }
+
 
 /*Plans Style*/
 .planscontainer{

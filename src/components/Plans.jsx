@@ -1,14 +1,21 @@
-import { Box, Button, Container, Grid, Switch, Typography } from "@mui/material";
-import React, { useState } from "react";
-import '../components/styles.css'
-
+import PropTypes from "prop-types";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Switch,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
+import "../components/styles.css";
 
 const plansData = [
   {
     name: "Arcade",
     monthlyPrice: "$9/mo",
     yearlyPrice: "$90/year",
-    iconplan: "../assets/images/icon-arcade.svg"
+    iconplan: "../assets/images/icon-arcade.svg",
   },
   {
     name: "Advanced",
@@ -34,7 +41,9 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
     e.preventDefault();
     nextStep();
   };
-
+  const handleSelectPlan = (planName) => {
+    setSelectedPlan(planName);
+  };
   return (
     <>
       <Container className="planscontainer">
@@ -43,7 +52,12 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
         <Grid container spacing={2}>
           {plansData.map((plan) => (
             <Grid item xs={4} key={plan.name}>
-              <Box className="boxplan">
+              <Box
+                className={`boxplan ${
+                  selectedPlan === plan.name ? "selected" : ""
+                }`}
+                onClick={() => handleSelectPlan(plan.name)}
+              >
                 <Typography className="planname">{plan.name}</Typography>
                 <Typography className="billingtype">
                   {billingType === "monthly"
@@ -55,23 +69,46 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
           ))}
         </Grid>
         <Grid container className="switchplan">
-          <p id='monthly'>Monthly</p>
-          <Switch 
-            checked= {billingType == "yearly"}
+          <p id="monthly">Monthly</p>
+          <Switch
+            checked={billingType == "yearly"}
             onChange={() =>
               setBillingType(billingType === "monthly" ? "yearly" : "monthly")
             }
           />
-          <p id='yearly'>Yearly</p>
+          <p id="yearly">Yearly</p>
         </Grid>
-            </Container>
-            <div className="btnPlans">
-                <Button onClick={Previous} variant="text" >Go Back</Button>
-                <Button onClick={Continue} variant="contained">Next Step</Button>
-            </div>
-        </>
-    )
-
-}
-
-export default Plans
+      </Container>
+      <div className="btnPlans">
+        <Button onClick={Previous} variant="text">
+          Go Back
+        </Button>
+        <Button
+          onClick={() => {
+            handleChange("plan")(selectedPlan);
+            Continue();
+             console.log("User Info:", values);
+            console.log("Selected Plan:", selectedPlan);
+          }}
+          variant="contained"
+        >
+          Next Step
+        </Button>
+      </div>
+    </>
+  );
+};
+Plans.propTypes = {
+  prevStep: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  values: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phonenumber: PropTypes.string.isRequired,
+    plan: PropTypes.string,
+    yearly: PropTypes.string,
+    addon: PropTypes.string,
+  }).isRequired,
+};
+export default Plans;

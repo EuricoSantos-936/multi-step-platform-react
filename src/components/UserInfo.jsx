@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import {useState} from "react";
+import PropTypes from "prop-types";
 import { TextField, Button} from "@mui/material";
 
 
@@ -61,7 +62,7 @@ const UserInfo = ({nextStep, handleChange, values}) => {
                     onChange={handleChange("email")}
                     defaultValue={values.email}
                     margin="dense"
-                    sx={{ marginBottom: 3, borderColor:"black" }}
+                    sx={{ marginBottom: 3}}
                     error={emailError}
                 />
                 <div className="labels">
@@ -75,15 +76,27 @@ const UserInfo = ({nextStep, handleChange, values}) => {
                     defaultValue={values.phonenumber}
                     margin="dense"
                     error = {showError}
-                    sx={{marginBottom:3, borderColor:"black"}}
+                    sx={{marginBottom:3}}
                 />
                 </div>
             <div className="buttonFirst">
                 <Button variant="contained" onClick={ Continue }>Next Step</Button>
             </div>
         </>
-    )
+    );
 
-}
+};
+UserInfo.propTypes = {
+  nextStep: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  values: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phonenumber: PropTypes.string.isRequired,
+    plan: PropTypes.string,
+    yearly: PropTypes.string,
+    addon: PropTypes.string,
+  }).isRequired,
+};
 
 export default UserInfo

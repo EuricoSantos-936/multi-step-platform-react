@@ -1,6 +1,6 @@
 import React from "react";
 
-const Addons = ({nextStep, handleChange, values}) => {
+const Addons = ({nextStep, prevStep, handleChange, values}) => {
 
     return(
         <div></div>
