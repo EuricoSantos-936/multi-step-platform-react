@@ -14,7 +14,7 @@
     url('../assets/fonts/Ubuntu-Regular.ttf');
 }
 :root{
-    --Marineblue: #0654b3;
+    --Marineblue: #02295a;
     --Purplishblue: #473dff;
     --Pastelblue: #adbeff;
     --Lightblue: #bfe2fd;
@@ -22,9 +22,9 @@
     
     --Coolgray: #9699ab;
     --Lightgray: #d6d9e6;
-    --Magnolia: hsl(217, 100%, 97%);
+    --Magnolia: #f0f6ff;
     --Alabaster: #fafbff;
-    --White: hsl(0, 0%, 100%);
+    --White: #ffffff;
     background-color: var(--Magnolia);
     font-family: "Ubuntu-Regular", sans-serif;
 }
@@ -87,6 +87,9 @@
     display: flex;
     flex-direction: column;
     font-size: 15px;
+    height: auto;
+    width: fit-content;
+    color: var(--Coolgray);
 }
 
 .planscontainer h1{
@@ -97,13 +100,48 @@
 .planscontainer p{
     font-size: 15px;
     font-weight: 400;
-    color: var(--Coolgray);
-    margin-bottom: 30px;
+    
+
+}
+.planname {
+    margin-top: 30%;
+    margin-left: 10px;
+    color: var(--Marineblue);
+}
+.billingtype{
+    margin-left: 10px;
+margin-top: -10%;
 }
 .boxplan{
     border: 1px solid var(--Lightgray);
     border-radius: 10px;
+    width: 140px;
+    height: 150px;
 }
+.boxplan img {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.boxplan:hover {
+    border: 1px solid var(--Purplishblue);
+    cursor: pointer;
+}
+.gridplan:focus {
+    
+    outline: 2px solid #007bff;
+} 
+.boxcontainer{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.gridplan{
+    display: flex;
+    height: 180px;
+    width: 140px;
+}
+
 .switchplan{
     display: flex;
     justify-content: center;
@@ -117,6 +155,12 @@
     justify-content: space-between !important;
 }
 
+#monthly{
+    color: var(--Marineblue);
+}
+#yearly{
+    color: var(--Marineblue);
+}
 /*Geral*/
 .attribution{
     text-align: center;

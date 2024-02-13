@@ -66,24 +66,7 @@ export default class Home extends Component {
                     activeStep={step - 1}
                     orientation="vertical"
                     sx={{ marginTop: "30px" }}
-                    StepIconComponent={(props) => {
-                      const { active, completed, icon } = props;
-
-                      switch (true) {
-                        case completed:
-                          return (
-                            <span style={{ color: "#bfe2fd" }}>{icon}</span>
-                          );
-                        case active:
-                          return (
-                            <span style={{ color: "#bfe2fd" }}>{icon}</span>
-                          );
-                        default:
-                          return (
-                            <span style={{ color: "#bfe2fd" }}>{icon}</span>
-                          );
-                      }
-                    }}
+                   
                   >
                     <Step>
                       <StepLabel

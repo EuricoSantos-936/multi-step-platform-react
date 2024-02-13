@@ -21,7 +21,6 @@ const theme = createTheme({
             border: "2px solid white",
             borderRadius: "50%",
             fontSize: "28px",
-            
           },
         },
         text: {
@@ -86,17 +85,24 @@ const theme = createTheme({
           "&.Mui-checked": {
             transform: "translateX(20px)",
           },
-          transform: "translateX(6px)",
         },
         track: {
           width: "40px",
           height: "20px",
           borderRadius: "10px",
+          background: "#02295a",
+          opacity: "1",
+          "&.Mui-checked": {
+            background: "#02295a",
+            opacity: "1",
+          },
         },
         thumb: {
           width: "14px",
           height: "14px",
           color: "white",
+          marginTop: "1px",
+          marginLeft: "1px",
         },
       },
     },

@@ -1,31 +1,35 @@
 import PropTypes from "prop-types";
 import {
-  Box,
+  
   Button,
-  Container,
-  Grid,
+
   Switch,
-  Typography,
 } from "@mui/material";
 import { useState } from "react";
 import "../components/styles.css";
+import ArcadeIcon from "../assets/images/icon-arcade.svg";
+import AdvancedIcon from "../assets/images/icon-advanced.svg";
+import ProIcon from "../assets/images/icon-pro.svg";
+
 
 const plansData = [
   {
     name: "Arcade",
     monthlyPrice: "$9/mo",
     yearlyPrice: "$90/year",
-    iconplan: "../assets/images/icon-arcade.svg",
+    iconplan: ArcadeIcon,
   },
   {
     name: "Advanced",
     monthlyPrice: "$12/mo",
     yearlyPrice: "$120/year",
+    iconplan: AdvancedIcon,
   },
   {
     name: "Pro",
     monthlyPrice: "$15/mo",
     yearlyPrice: "$150/year",
+    iconplan: ProIcon,
   },
 ];
 
@@ -46,29 +50,33 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
   };
   return (
     <>
-      <Container className="planscontainer">
+      <div className="planscontainer">
         <h1>Select your plan</h1>
         <p>You have the option of monthly or yearly billing.</p>
-        <Grid container spacing={2}>
+        <div className="boxcontainer">
           {plansData.map((plan) => (
-            <Grid item xs={4} key={plan.name}>
-              <Box
+            <div className="gridplan"  key={plan.name}>
+              <div
                 className={`boxplan ${
                   selectedPlan === plan.name ? "selected" : ""
                 }`}
-                onClick={() => handleSelectPlan(plan.name)}
+                onClick={() => {
+                  handleSelectPlan(plan.name);
+                  
+                }}
               >
-                <Typography className="planname">{plan.name}</Typography>
-                <Typography className="billingtype">
+                <img src={plan.iconplan} alt={`${plan.name} Icon`} />
+                <p className="planname">{plan.name}</p>
+                <p className="billingtype">
                   {billingType === "monthly"
                     ? plan.monthlyPrice
                     : plan.yearlyPrice}
-                </Typography>
-              </Box>
-            </Grid>
+                </p>
+              </div>
+            </div>
           ))}
-        </Grid>
-        <Grid container className="switchplan">
+        </div>
+        <div className="switchplan">
           <p id="monthly">Monthly</p>
           <Switch
             checked={billingType == "yearly"}
@@ -77,8 +85,8 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
             }
           />
           <p id="yearly">Yearly</p>
-        </Grid>
-      </Container>
+        </div>
+      </div>
       <div className="btnPlans">
         <Button onClick={Previous} variant="text">
           Go Back
@@ -87,7 +95,7 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
           onClick={() => {
             handleChange("plan")(selectedPlan);
             Continue();
-             console.log("User Info:", values);
+            console.log("User Info:", values);
             console.log("Selected Plan:", selectedPlan);
           }}
           variant="contained"
