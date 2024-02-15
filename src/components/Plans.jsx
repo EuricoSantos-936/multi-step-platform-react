@@ -1,34 +1,28 @@
 import PropTypes from "prop-types";
-import {
-  
-  Button,
-
-  Switch,
-} from "@mui/material";
+import { Button, Switch } from "@mui/material";
 import { useState } from "react";
 import "../components/styles.css";
 import ArcadeIcon from "../assets/images/icon-arcade.svg";
 import AdvancedIcon from "../assets/images/icon-advanced.svg";
 import ProIcon from "../assets/images/icon-pro.svg";
 
-
 const plansData = [
   {
     name: "Arcade",
-    monthlyPrice: "$9/mo",
-    yearlyPrice: "$90/year",
+    monthlyPrice: 9,
+    yearlyPrice: 90,
     iconplan: ArcadeIcon,
   },
   {
     name: "Advanced",
-    monthlyPrice: "$12/mo",
-    yearlyPrice: "$120/year",
+    monthlyPrice: 12,
+    yearlyPrice: 120,
     iconplan: AdvancedIcon,
   },
   {
     name: "Pro",
-    monthlyPrice: "$15/mo",
-    yearlyPrice: "$150/year",
+    monthlyPrice: 15,
+    yearlyPrice: 150,
     iconplan: ProIcon,
   },
 ];
@@ -55,22 +49,21 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
         <p>You have the option of monthly or yearly billing.</p>
         <div className="boxcontainer">
           {plansData.map((plan) => (
-            <div className="gridplan"  key={plan.name}>
+            <div className="gridplan" key={plan.name}>
               <div
                 className={`boxplan ${
                   selectedPlan === plan.name ? "selected" : ""
                 }`}
                 onClick={() => {
                   handleSelectPlan(plan.name);
-                  
                 }}
               >
                 <img src={plan.iconplan} alt={`${plan.name} Icon`} />
                 <p className="planname">{plan.name}</p>
                 <p className="billingtype">
                   {billingType === "monthly"
-                    ? plan.monthlyPrice
-                    : plan.yearlyPrice}
+                    ? "$" + plan.monthlyPrice + "/mo"
+                    : "$" + plan.yearlyPrice + "/mo"}
                 </p>
               </div>
             </div>
