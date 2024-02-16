@@ -29,19 +29,32 @@ const plansData = [
 
 const Plans = ({ prevStep, nextStep, handleChange, values }) => {
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [billingType, setBillingType] = useState("monthly");
-
+  const [billingType, setBillingType] = useState(false);
   const Previous = (e) => {
     e.preventDefault();
     prevStep();
   };
   const Continue = (e) => {
+    if (!e || !e.target) {
+      console.error("Invalid event object:", e);
+      return;
+    }
     e.preventDefault();
-    nextStep();
+    if (values.name && values.email && values.phonenumber && selectedPlan) {
+      nextStep();
+    } else {
+      console.log("Please fill in all required information.");
+    }
   };
-  const handleSelectPlan = (planName) => {
+  const handleSelectPlan = (planName, event) => {
+    event.preventDefault();
     setSelectedPlan(planName);
+    handleChange("plan")({ target: { value: planName } });
   };
+const handleSwitchChange = () => {
+  setBillingType(!billingType);
+  handleChange("yearly")({ target: { value: !billingType } });
+};
   return (
     <>
       <div className="planscontainer">
@@ -54,8 +67,8 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
                 className={`boxplan ${
                   selectedPlan === plan.name ? "selected" : ""
                 }`}
-                onClick={() => {
-                  handleSelectPlan(plan.name);
+                onClick={(e) => {
+                  handleSelectPlan(plan.name, e);
                 }}
               >
                 <img src={plan.iconplan} alt={`${plan.name} Icon`} />
@@ -71,12 +84,7 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
         </div>
         <div className="switchplan">
           <p id="monthly">Monthly</p>
-          <Switch
-            checked={billingType == "yearly"}
-            onChange={() =>
-              setBillingType(billingType === "monthly" ? "yearly" : "monthly")
-            }
-          />
+          <Switch checked={billingType} onChange={handleSwitchChange} />
           <p id="yearly">Yearly</p>
         </div>
       </div>
@@ -85,11 +93,10 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
           Go Back
         </Button>
         <Button
-          onClick={() => {
-            handleChange("plan")(selectedPlan);
-            Continue();
+          onClick={(e) => {
+            Continue(e);
+            handleChange("plan", selectedPlan);
             console.log("User Info:", values);
-            console.log("Selected Plan:", selectedPlan);
           }}
           variant="contained"
         >
@@ -108,7 +115,7 @@ Plans.propTypes = {
     email: PropTypes.string.isRequired,
     phonenumber: PropTypes.string.isRequired,
     plan: PropTypes.string,
-    yearly: PropTypes.string,
+    yearly: PropTypes.bool,
     addon: PropTypes.string,
   }).isRequired,
 };

@@ -1,7 +1,4 @@
 import "../components/styles.css"
-import '../assets/fonts/Ubuntu-Bold.ttf'
-import '../assets/fonts/Ubuntu-Medium.ttf'
-import '../assets/fonts/Ubuntu-Regular.ttf'
 import {Component}from "react"
 import UserInfo from "./UserInfo"
 import Plans from "./Plans"
@@ -17,7 +14,7 @@ export default class Home extends Component {
     email: '', 
     phonenumber: '',
     plan: '',
-    yearly: '',
+    yearly: false,
     addon: '',
     
   }
@@ -36,7 +33,8 @@ export default class Home extends Component {
 
         // handle field change
         handleChange = input => e => {
-            this.setState({ [input]: e.target.value });
+              const value = e.target.value;
+              this.setState({ [input]: value });
         }
     render(){
         const { step } = this.state;

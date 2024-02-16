@@ -76,14 +76,13 @@ const theme = createTheme({
     MuiSwitch: {
       styleOverrides: {
         root: {
-          paddingTop: "6px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         },
         switchBase: {
           "&.Mui-checked": {
-            transform: "translateX(20px)",
+            transform: "translateX(15px)",
           },
         },
         track: {
@@ -94,15 +93,15 @@ const theme = createTheme({
           opacity: "1",
           "&.Mui-checked": {
             background: "#02295a",
-            opacity: "1",
+           
           },
         },
         thumb: {
           width: "14px",
           height: "14px",
           color: "white",
-          marginTop: "1px",
-          marginLeft: "1px",
+          marginTop: "3px",
+          marginLeft: "5px",
         },
       },
     },
@@ -119,4 +118,4 @@ const theme = createTheme({
   },
 });
 
-  export default theme
+export default theme;
