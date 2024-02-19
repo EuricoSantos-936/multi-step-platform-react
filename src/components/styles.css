@@ -1,25 +1,28 @@
 @font-face {
     font-family: "Ubuntu-Bold";
     src: local('Ubuntu-Bold'),
-    url('../assets/fonts/Ubuntu-Bold.ttf');
+        url('../assets/fonts/Ubuntu-Bold.ttf');
 }
+
 @font-face {
     font-family: "Ubuntu-Medium";
     src: local('Ubunutu-Medium'),
-    url('../assets/fonts/Ubuntu-Medium.ttf');
+        url('../assets/fonts/Ubuntu-Medium.ttf');
 }
+
 @font-face {
     font-family: "Ubuntu-Regular";
     src: local('Ubuntu-Regular'),
-    url('../assets/fonts/Ubuntu-Regular.ttf');
+        url('../assets/fonts/Ubuntu-Regular.ttf');
 }
-:root{
+
+:root {
     --Marineblue: #02295a;
     --Purplishblue: #473dff;
     --Pastelblue: #adbeff;
     --Lightblue: #bfe2fd;
     --Strawberryred: #ed3548;
-    
+
     --Coolgray: #9699ab;
     --Lightgray: #d6d9e6;
     --Magnolia: #f0f6ff;
@@ -29,61 +32,67 @@
     font-family: "Ubuntu-Regular", sans-serif;
 }
 
-.sidebar{
+.sidebar {
     width: 280px;
     height: 570px;
-    background: url("/src/assets/images/bg-sidebar-desktop.svg" );
+    background: url("/src/assets/images/bg-sidebar-desktop.svg");
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: flex-start;
 }
 
-.stepper{
+.stepper {
     margin-left: 50px;
 
 }
 
 /*User Info Styles*/
-.usercontainer{
+.usercontainer {
     display: flex;
     flex-direction: column;
     font-size: 15px;
 }
-.usercontainer label{
+
+.usercontainer label {
     color: var(--Marineblue);
 }
-.usercontainer h1{
+
+.usercontainer h1 {
     color: var(--Marineblue);
     font-weight: 700;
     margin-bottom: 0;
 }
-.usercontainer p{
+
+.usercontainer p {
     font-size: 15px;
     font-weight: 400;
     color: var(--Coolgray);
     margin-bottom: 30px;
 }
-.required{
+
+.required {
     text-align: right;
 }
-.requiredemail{
+
+.requiredemail {
     text-align: right;
 }
-.labels{
+
+.labels {
     display: flex;
     justify-content: space-between;
 }
 
-.buttonFirst{
+.buttonFirst {
     display: flex !important;
-  justify-content: right !important;
-
+    justify-content: right !important;
+    margin-bottom: 10%;
 }
 
 
 /*Plans Style*/
-.planscontainer{
+.planscontainer {
     display: flex;
     flex-direction: column;
     font-size: 15px;
@@ -92,80 +101,196 @@
     color: var(--Coolgray);
 }
 
-.planscontainer h1{
+.planscontainer h1 {
     color: var(--Marineblue);
     font-weight: 700;
     margin-bottom: 0;
 }
-.planscontainer p{
+
+.planscontainer p {
     font-size: 15px;
     font-weight: 400;
-    
+
 
 }
+
 .planname {
     margin-top: 30%;
     margin-left: 10px;
     color: var(--Marineblue);
 }
-.billingtype{
+
+.billingtype {
     margin-left: 10px;
-margin-top: -10%;
+    margin-top: -10%;
 }
-.boxplan{
+
+.boxplan {
     border: 1px solid var(--Lightgray);
     border-radius: 10px;
     width: 140px;
     height: 150px;
     transition: border-color 0.3s ease-in-out;
 }
+
 .boxplan img {
     margin-top: 10px;
     margin-left: 10px;
 }
+
 .boxplan:hover {
     border: 1px solid var(--Purplishblue);
     cursor: pointer;
 }
+
 .boxplan.selected {
     border: 1px solid var(--Purplishblue);
     cursor: pointer;
 }
+
 .gridplan:focus {
-    
+
     outline: 2px solid #007bff;
-} 
-.boxcontainer{
+}
+
+.boxcontainer {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     margin-top: 2rem;
 }
 
-.gridplan{
+.gridplan {
     display: flex;
     height: 180px;
     width: 140px;
 }
 
-.switchplan{
+.switchplan {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btnPlans{
-    display: flex !important;
-    justify-content: space-between !important;
+.btnPlans {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10%;
 }
 
-#monthly{
+#monthly {
     color: var(--Marineblue);
 }
-#yearly{
+
+#yearly {
     color: var(--Marineblue);
 }
+
+/*Addons*/
+
+.addoncontainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    height: auto;
+    width: fit-content;
+    color: var(--Coolgray);
+}
+
+.addoncontainer h1 {
+    color: var(--Marineblue);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.addoncontainer p {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.addonbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.addonframe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    width: 27rem;
+    margin-bottom: 20px;
+    height: 80px;
+    border: 1px solid var(--Lightgray);
+    position: relative;
+    transition: border-color 0.3s ease-in-out;
+}
+.addonframe.checked {
+    border-color: #473dff;
+
+}
+.addon-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    position: absolute;
+    left: 10px;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #9699ab;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.checkbox-container input:checked+.checkbox-custom {
+    background-color: #473dff !important;
+    border: 2px solid #473dff !important;
+    text-align: center;
+}
+
+.checkbox-container input:checked+.checkbox-custom::before {
+    content: '\2713';
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.addon {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.service {
+    color: var(--Marineblue);
+    margin-bottom: -10px;
+}
+
+.price {
+    color: var(--Marineblue);
+    text-align: right;
+    right: 10px;
+    position: absolute;
+}
+
 /*Geral*/
-.attribution{
+.attribution {
     text-align: center;
 }
