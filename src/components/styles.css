@@ -111,7 +111,6 @@
     font-size: 15px;
     font-weight: 400;
 
-
 }
 
 .planname {
@@ -126,11 +125,16 @@
 }
 
 .boxplan {
+    
     border: 1px solid var(--Lightgray);
     border-radius: 10px;
     width: 140px;
     height: 150px;
     transition: border-color 0.3s ease-in-out;
+}
+
+.boxplan.large {
+    height: 180px;
 }
 
 .boxplan img {
@@ -176,6 +180,11 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10%;
+}
+
+.promotion {
+    color: var(--Marineblue);
+    margin-left: 10px;
 }
 
 #monthly {

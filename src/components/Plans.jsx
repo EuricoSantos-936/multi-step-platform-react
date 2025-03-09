@@ -51,9 +51,9 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
     setSelectedPlan(planName);
     handleChange("plan")({ target: { value: planName } });
   };
-const handleSwitchChange = () => {
-  setBillingType(!billingType);
-  handleChange("yearly")({ target: { value: !billingType } });
+  const handleSwitchChange = () => {
+    setBillingType(!billingType);
+    handleChange("yearly")({ target: { value: !billingType } });
 };
   return (
     <>
@@ -66,7 +66,7 @@ const handleSwitchChange = () => {
               <div
                 className={`boxplan ${
                   selectedPlan === plan.name ? "selected" : ""
-                }`}
+                } ${billingType ? "large" : ""}`}
                 onClick={(e) => {
                   handleSelectPlan(plan.name, e);
                 }}
@@ -74,10 +74,11 @@ const handleSwitchChange = () => {
                 <img src={plan.iconplan} alt={`${plan.name} Icon`} />
                 <p className="planname">{plan.name}</p>
                 <p className="billingtype">
-                  {billingType === "monthly"
-                    ? "$" + plan.monthlyPrice + "/mo"
-                    : "$" + plan.yearlyPrice + "/mo"}
+                  {billingType
+                    ? "$" + plan.yearlyPrice + "/mo"
+                    : "$" + plan.monthlyPrice + "/mo"}
                 </p>
+                {billingType && <p className="promotion">2 months free</p>}
               </div>
             </div>
           ))}
