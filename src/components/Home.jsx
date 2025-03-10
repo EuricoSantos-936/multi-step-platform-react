@@ -5,7 +5,8 @@ import Plans from "./Plans";
 import Addons from "./Addons";
 import Summary from "./Summary";
 import Final from "./Final";
-import { Container, Grid, Stepper, Step, StepLabel } from "@mui/material";
+import { Container, Stepper, Step, StepLabel } from "@mui/material";
+import Grid from '@mui/material/Grid2';
 
 export default class Home extends Component {
   state = {
