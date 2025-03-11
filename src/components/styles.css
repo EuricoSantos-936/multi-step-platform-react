@@ -47,6 +47,16 @@
 
 }
 
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+    width: 570px;
+    height: 570px;
+}
+
 /*User Info Styles*/
 .usercontainer {
     display: flex;

@@ -50,18 +50,19 @@ export default class Home extends Component {
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "white",
+            marginTop: "50px",
             borderRadius: "10px",
             paddingTop: "10px",
             paddingBottom: "10px",
           }}
         >
           <Grid container>
-            <Grid className="sidebar" item>
+            <Grid className="sidebar">
               <Stepper
                 className="stepper"
                 activeStep={step - 1}
                 orientation="vertical"
-                sx={{ marginTop: "30px" }}
+                sx={{ marginTop: "30px"}}
               >
                 <Step>
                   <StepLabel
@@ -98,14 +99,7 @@ export default class Home extends Component {
               </Stepper>
             </Grid>
             <Grid
-              item
-              md={6}
-              sx={{
-                marginLeft: 7,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
+              className="content" 
             >
               {step === 1 && (
                 <UserInfo
