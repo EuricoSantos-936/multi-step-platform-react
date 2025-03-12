@@ -100,7 +100,14 @@ UserInfo.propTypes = {
     phonenumber: PropTypes.string.isRequired,
     plan: PropTypes.string,
     yearly: PropTypes.bool,
-    addon: PropTypes.string,
+    addons: PropTypes.arrayOf(
+      PropTypes.shape({
+        service: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        priceMonth: PropTypes.number.isRequired,
+        priceYear: PropTypes.number.isRequired,
+      })
+    ),
   }).isRequired,
 };
 

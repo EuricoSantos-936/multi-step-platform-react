@@ -29,7 +29,7 @@ const plansData = [
 
 const Plans = ({ prevStep, nextStep, handleChange, values }) => {
   const [selectedPlan, setSelectedPlan] = useState("");
-  const [billingType, setBillingType] = useState(false);
+  const [billingType, setBillingType] = useState(values.yearly || false);
   const Previous = (e) => {
     e.preventDefault();
     prevStep();
@@ -54,7 +54,7 @@ const Plans = ({ prevStep, nextStep, handleChange, values }) => {
   const handleSwitchChange = () => {
     setBillingType(!billingType);
     handleChange("yearly")({ target: { value: !billingType } });
-};
+  };
   return (
     <>
       <div className="planscontainer">
@@ -117,7 +117,14 @@ Plans.propTypes = {
     phonenumber: PropTypes.string.isRequired,
     plan: PropTypes.string,
     yearly: PropTypes.bool,
-    addon: PropTypes.string,
+    addons: PropTypes.arrayOf(
+      PropTypes.shape({
+        service: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        priceMonth: PropTypes.number.isRequired,
+        priceYear: PropTypes.number.isRequired,
+      })
+    ),
   }).isRequired,
 };
 export default Plans;

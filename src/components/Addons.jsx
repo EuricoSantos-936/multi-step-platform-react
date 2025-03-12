@@ -78,7 +78,10 @@ const Addons = ({ nextStep, prevStep, handleChange, values }) => {
                   <p>{addon.description}</p>
                 </div>
                 <p className="price">
-                  +${values.yearly ? (addon.priceYear + "/yr") : (addon.priceMonth +"/mo")}
+                  +$
+                  {values.yearly
+                    ? addon.priceYear + "/yr"
+                    : addon.priceMonth + "/mo"}
                 </p>
               </div>
             </div>
@@ -111,7 +114,14 @@ Addons.propTypes = {
     phonenumber: PropTypes.string.isRequired,
     plan: PropTypes.string,
     yearly: PropTypes.bool,
-    addon: PropTypes.string,
+    addons: PropTypes.arrayOf(
+      PropTypes.shape({
+        service: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        priceMonth: PropTypes.number.isRequired,
+        priceYear: PropTypes.number.isRequired,
+      })
+    ),
   }).isRequired,
 };
 
