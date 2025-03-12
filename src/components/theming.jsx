@@ -93,7 +93,6 @@ const theme = createTheme({
           opacity: "1",
           "&.Mui-checked": {
             background: "#02295a",
-           
           },
         },
         thumb: {
@@ -110,7 +109,7 @@ const theme = createTheme({
         notchedOutline: {
           borderColor: "#d6d9e6",
           "&:hover": {
-            borderColor: "#473dff",
+            borderColor: "#02295a",
           },
         },
       },
