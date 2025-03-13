@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Button } from "@mui/material";
 import "../components/styles.css";
@@ -34,22 +34,30 @@ const Addons = ({ nextStep, prevStep, handleChange, values }) => {
     newCheckedStatus[index] = !newCheckedStatus[index];
     setCheckedStatus(newCheckedStatus);
   };
+
   const Previous = (e) => {
     e.preventDefault();
     prevStep();
   };
 
   const Continue = (e) => {
-    if (!e || !e.target) {
-      console.error("Invalid event object:", e);
-      return;
-    }
     e.preventDefault();
-    if (values.name && values.email && values.phonenumber && selectedPlan) {
+    const selectedAddons = addonsData
+      .filter((_, index) => checkedStatus[index])
+      .map((addon) => ({
+        service: addon.service,
+        description: addon.description,
+        price: values.yearly ? addon.priceYear : addon.priceMonth,
+      }));
+
+    if (values.name && values.email && values.phonenumber && values.plan) {
+      handleChange({ target: { name: "addons", value: selectedAddons } });
+      console.log("Selected Addons:", selectedAddons);
       nextStep();
     } else {
       console.log("Please fill in all required information.");
     }
+    console.log(values);
   };
 
   return (
@@ -92,18 +100,14 @@ const Addons = ({ nextStep, prevStep, handleChange, values }) => {
         <Button onClick={Previous} variant="text">
           Go Back
         </Button>
-        <Button
-          onClick={() => {
-            Continue();
-          }}
-          variant="contained"
-        >
+        <Button onClick={Continue} variant="contained">
           Next Step
         </Button>
       </div>
     </>
   );
 };
+
 Addons.propTypes = {
   prevStep: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
